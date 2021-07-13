@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace _2_print_alphabet
+namespace _3_print_alphabet
 {
     class Program
     {
