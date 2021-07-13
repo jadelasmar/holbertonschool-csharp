@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace _4_print_alphabet
+namespace _4_print_hexa
 {
     class Program
     {
