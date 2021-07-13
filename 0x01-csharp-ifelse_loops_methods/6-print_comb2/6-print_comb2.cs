@@ -17,7 +17,6 @@ namespace _6_print_comb2
                     else Console.Write("{0}{1}, ", i, j);
                 }
             }
-            Console.WriteLine();
         }
     }
 }
