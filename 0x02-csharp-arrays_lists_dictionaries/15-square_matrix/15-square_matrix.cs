@@ -8,7 +8,7 @@ class Matrix
         {
             for (int j = 0; j < myMatrix.GetLength(1); j++)
             {
-                myMatrix[i, j] = Math.Pow(myMatrix[i, j], 2);
+                myMatrix[i, j] = myMatrix[i, j] * myMatrix[i, j];
             }
         }
         return myMatrix;
