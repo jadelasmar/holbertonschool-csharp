@@ -40,7 +40,7 @@ class Array
                 }
                 else
                 {
-                    Console.Write("\n");
+                    Console.Write("\ns");
                 }
             }
         }
