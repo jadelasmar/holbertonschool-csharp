@@ -19,6 +19,6 @@ class Dictionary
                 key = kvp.Key;
             }
         }
-        return big;
+        return key;
     }
 }
