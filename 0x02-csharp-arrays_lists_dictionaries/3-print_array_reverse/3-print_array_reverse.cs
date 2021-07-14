@@ -1,5 +1,5 @@
 ﻿using System;
-class Program
+class Array
 {
     public static void Reverse(int[] array)
     {
