@@ -17,24 +17,24 @@ class Array
         newArray = cPrint(-10);
     }
 
-    public static int[] cPrint(int siz)
+    public static int[] cPrint(int size)
     {
-        if (siz < 0)
+        if (size < 0)
         {
             Console.WriteLine("Size cannot be negative");
             return null;
         }
-        int[] numb = new int[siz];
-        if (siz == 0)
+        int[] numb = new int[size];
+        if (size == 0)
         {
             Console.WriteLine();
         }
         else
         {
-            for (int i = 0; i < siz; i++)
+            for (int i = 0; i < size; i++)
             {
                 Console.Write("{0}", i);
-                if (i < siz - 1)
+                if (i < size - 1)
                 {
                     Console.Write(" ");
                 }
