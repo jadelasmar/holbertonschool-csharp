@@ -9,7 +9,7 @@ class Dictionary
         {
             return "None";
         }
-        string key=null;
+        string key=String.Empty;
         int value=0;
         foreach(KeyValuePair<string,int> kvp in myList)
         {
