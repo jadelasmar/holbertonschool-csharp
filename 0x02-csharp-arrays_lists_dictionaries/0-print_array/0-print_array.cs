@@ -24,11 +24,11 @@ class Array
             Console.WriteLine("Size cannot be negative");
             return null;
         }
-        int[] numb = new int[size];
+        int[] array = new int[size];
         if (size == 0)
         {
             Console.WriteLine();
-            return numb;
+            return array;
         }
         else
         {
@@ -45,6 +45,6 @@ class Array
                 }
             }
         }
-        return numb;
+        return array;
     }
 }
