@@ -30,19 +30,17 @@ class Array
             Console.WriteLine();
             return array;
         }
-        else
+        for (int i = 0; i < size; i++)
         {
-            for (int i = 0; i < size; i++)
+            array[i] =i;
+            Console.Write("{0}", i);
+            if (i < size - 1)
             {
-                Console.Write("{0}", i);
-                if (i < size - 1)
-                {
-                    Console.Write(" ");
-                }
-                else
-                {
-                    Console.Write("\n");
-                }
+                Console.Write(" ");
+            }
+            else
+            {
+                Console.WriteLine();
             }
         }
         return array;
