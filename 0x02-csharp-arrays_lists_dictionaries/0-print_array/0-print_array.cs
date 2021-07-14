@@ -33,11 +33,18 @@ namespace _0_print_array
             }
             else
             {
-                for (int i = 0; i < size - 1; i++)
+                for (int i = 0; i < size; i++)
                 {
-                    Console.Write("{0} ", i);
+                    if (i == size - 1)
+                    {
+                        Console.WriteLine("{0}", i);
+                    }
+                    else
+                    {
+                        Console.Write("{0} ", i);
+                    }
                 }
-                Console.WriteLine(size - 1);
+
             }
             return newArr;
         }
