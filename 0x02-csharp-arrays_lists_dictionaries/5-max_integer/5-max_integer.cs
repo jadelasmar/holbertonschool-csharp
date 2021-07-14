@@ -4,7 +4,7 @@ class List
 {
     public static int MaxInteger(List<int> myList)
     {
-        if (myList.isEmpty())
+        if (myList.Count == 0)
         {
             Console.WriteLine("List is empty");
             return -1;
@@ -12,7 +12,7 @@ class List
         int max = myList[0];
         foreach (int element in myList)
         {
-            if (max <= element)
+            if (max < element)
             {
                 max = element;
             }
