@@ -1,49 +1,35 @@
 ﻿using System;
+
 class Array
 {
-    static void Main(string[] args)
-    {
-        int[] newArray;
-
-        newArray = cPrint(10);
-        Console.WriteLine("Array Length: " + newArray.Length);
-        Console.WriteLine("----------------");
-        newArray = cPrint(16);
-        Console.WriteLine("Array Length: " + newArray.Length);
-        Console.WriteLine("----------------");
-        newArray = cPrint(0);
-        Console.WriteLine("Array Length: " + newArray.Length);
-        Console.WriteLine("----------------");
-        newArray = cPrint(-10);
-    }
-
-    public static int[] cPrint(int size)
+    public static int[] CreatePrint(int size)
     {
         if (size < 0)
         {
             Console.WriteLine("Size cannot be negative");
             return null;
         }
-        int[] numb = new int[size];
+
+        int[] array = new int[size];
         if (size == 0)
         {
             Console.WriteLine();
+            return array;
         }
-        else
+
+        for (int i = 0; i < size; i++)
         {
-            for (int i = 0; i < size; i++)
+            array[i] = i;
+            Console.Write($"{i}", i);
+            if (i != size - 1)
             {
-                Console.Write("{0}", i);
-                if (i < size - 1)
-                {
-                    Console.Write(" ");
-                }
-                else
-                {
-                    Console.Write("\n");
-                }
+                Console.Write(" ");
+            }
+            else
+            {
+                Console.WriteLine();
             }
         }
-        return numb;
+        return array;
     }
 }
