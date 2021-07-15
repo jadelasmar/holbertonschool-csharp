@@ -20,6 +20,7 @@ class LList
             if (newNode.Value < node.Value)
             {
                 myLList.AddBefore(node, n);
+                return newNode;
             }
             node = node.Next;
         }
