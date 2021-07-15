@@ -15,7 +15,6 @@ class Program
         myLList.AddLast(23);
         myLList.AddLast(-6);
         myLList.AddLast(5);
-s
         Console.WriteLine(LList.Sum(myLList));
     }
 }
