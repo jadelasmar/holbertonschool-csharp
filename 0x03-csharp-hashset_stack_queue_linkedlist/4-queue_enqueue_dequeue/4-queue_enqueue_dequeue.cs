@@ -12,6 +12,7 @@ class MyQueue
         {
             Console.WriteLine("Queue is empty");
             aQueue.Enqueue(newItem);
+            Console.WriteLine("Queue contains \"{0}\": {1}", search, contain);
             return aQueue;
         }
         string item = aQueue.Peek();

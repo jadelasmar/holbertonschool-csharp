@@ -8,13 +8,16 @@ class MyStack
     {
         int number = aStack.Count;
         Console.WriteLine("Number of items: {0}", number);
+        bool contain = aStack.Contains(search);
         if (number == 0)
         {
             Console.WriteLine("Stack is empty");
+            Console.WriteLine("Stack contains \"{0}\": {1}", search, contain);
+            aStack.Push(newItem);
+            return aStack;
         }
         string item = aStack.Peek();
         Console.WriteLine("Top item: {0}", item);
-        bool contain = aStack.Contains(search);
         Stack<string> copy = new Stack<string>(aStack);
         if (contain == true)
         {
