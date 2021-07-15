@@ -1,12 +1,15 @@
 ﻿using System;
+using System.Collections.Generic;
 
-namespace _0_unique_add
+class List
 {
-    class Program
+    public static int Sum(List<int> myList)
     {
-        static void Main(string[] args)
+        int sum = 0;
+        foreach (int element in myList)
         {
-            Console.WriteLine("Hello World!");
+            sum += element;
         }
+        return sum;
     }
 }
