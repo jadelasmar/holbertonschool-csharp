@@ -1,12 +1,16 @@
 ﻿using System;
+using System.Collections.Generic;
 
-namespace _1_common_elements
+
+class List
 {
-    class Program
+    public static List<int> CommonElements(List<int> list1, List<int> list2)
     {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Hello World!");
-        }
+        HashSet<int> set1 = new HashSet<int>(list1);
+        HashSet<int> set2 = new HashSet<int>(list2);
+        set1.IntersectWith(set2);
+        List<int> common = new List<int>(set1);
+        common.Sort();
+        return common;
     }
 }
