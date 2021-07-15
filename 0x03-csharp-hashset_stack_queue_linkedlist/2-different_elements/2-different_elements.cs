@@ -1,12 +1,15 @@
 ﻿using System;
+using System.Collections.Generic;
 
-namespace _2_different_elements
+class List
 {
-    class Program
+    public static List<int> DifferentElements(List<int> list1, List<int> list2)
     {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Hello World!");
-        }
+        HashSet<int> set1 = new HashSet<int>(list1);
+        HashSet<int> set2 = new HashSet<int>(list2);
+        set1.SymmetricExceptWith(set2);
+        List<int> diff = new List<int>(set1);
+        diff.Sort();
+        return diff;
     }
 }
