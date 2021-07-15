@@ -5,33 +5,26 @@ class MyQueue
 {
     public static Queue<string> Info(Queue<string> aQueue, string newItem, string search)
     {
-        int number = aQueue.Count;
-        Console.WriteLine("Number of items: {0}", number);
-        string item = aQueue.Peek();
-        if (number > 0)
-        {
-            Console.WriteLine("First item: {0}", item);
-        }
-        else
-        {
-            Console.WriteLine("Queue is empty");
-        }
-        aQueue.Enqueue(newItem);
-        bool contain = aQueue.Contains(search);
-        Console.WriteLine("Queue contains {0}: {1}", search, contain);
-        Stack<string> copy = new Stack<string>(aQueue);
-        string remove = String.Empty;
-        if (contain == true)
-        {
-            foreach (string element in copy)
-            {
-                remove = aQueue.Dequeue();
-                if (remove == search)
+         Console.WriteLine("Number of items: {0}", aQueue.Count);
+            if(aQueue.Count > 0)
                 {
-                    break;
+                    Console.WriteLine("First item: {0}", aQueue.Peek());
                 }
-            }
-        }
-        return aQueue;
+            else
+                {
+                    Console.WriteLine("Queue is empty");
+                }
+            if(aQueue.Contains(search))
+                {
+                    Console.WriteLine("Queue contains \"{0}\": True", search);
+                    while((aQueue.Peek() != search || aQueue.Peek() == search) && aQueue.Contains(search))
+                    aQueue.Dequeue();
+                }
+            else
+                {
+                    Console.WriteLine("Queue contains \"{0}\": False", search);
+                }
+            aQueue.Enqueue(newItem);
+            return(aQueue);
     }
 }
