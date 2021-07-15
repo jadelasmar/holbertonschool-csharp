@@ -18,6 +18,6 @@ class LList
                 return myLList.AddBefore(node, n);
             }
         }
-        return myLList.AddFirst(n);
+        return myLList.AddLast(n);
     }
 }
