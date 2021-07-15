@@ -19,7 +19,7 @@ class MyStack
         if (contain == true)
         {
             string remove = String.Empty;
-            Console.WriteLine("Stack contains {0}: {1}", search, contain);
+            Console.WriteLine("Stack contains \"{0}\": {1}", search, contain);
             foreach (string element in copy)
             {
                 remove = aStack.Pop();
