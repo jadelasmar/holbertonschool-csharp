@@ -12,7 +12,7 @@ class MyQueue
             Console.WriteLine("Queue is empty");
         }
         string item = aQueue.Peek();
-        Console.WriteLine("Top item: {0}", item);
+        Console.WriteLine("First item: {0}", item);
         aQueue.Enqueue(newItem);
         bool contain = aQueue.Contains(search);
         Stack<string> copy = new Stack<string>(aQueue);
