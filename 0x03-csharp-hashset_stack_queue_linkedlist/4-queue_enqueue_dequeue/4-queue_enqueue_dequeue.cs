@@ -7,14 +7,16 @@ class MyQueue
     {
        int number = aQueue.Count;
        Console.WriteLine("Number of items: {0}",number);
+       bool contain = aQueue.Contains(search);
        if (number == 0)
         {
             Console.WriteLine("Queue is empty");
+            aQueue.Enqueue(newItem);
+            return aQueue;
         }
         string item = aQueue.Peek();
         Console.WriteLine("First item: {0}", item);
         aQueue.Enqueue(newItem);
-        bool contain = aQueue.Contains(search);
         Stack<string> copy = new Stack<string>(aQueue);
         if (contain == true)
         {
