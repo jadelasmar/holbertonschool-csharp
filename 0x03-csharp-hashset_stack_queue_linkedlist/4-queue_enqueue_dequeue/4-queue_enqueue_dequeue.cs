@@ -20,6 +20,6 @@ class MyQueue
         {
              while (aQueue.Dequeue() != search);
         }
-        return (aQueue);
+        return aQueue;
     }
 }
