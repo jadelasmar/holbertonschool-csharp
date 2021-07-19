@@ -14,14 +14,13 @@ namespace _100_jagged_array
             {
                 for (int j = 0; j < jaggedArray[i].Length; j++)
                 {
-                    Console.Write(jaggedArray[i][j]);
-                    if (j == jaggedArray[i].Length - 1)
+                    if (j < jaggedArray[i].Length - 1)
                     {
-                        Console.WriteLine();
+                        Console.Write("{0} ", jaggedArray[i][j]);
                     }
                     else
                     {
-                        Console.Write(" ");
+                        Console.WriteLine("{0}", jaggedArray[i][j]);
                     }
                 }
             }
