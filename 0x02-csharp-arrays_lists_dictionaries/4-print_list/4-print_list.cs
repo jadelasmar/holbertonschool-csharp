@@ -22,4 +22,4 @@ class List
         Console.WriteLine();
         return list;
     }
-}s
+}
