@@ -4,6 +4,3 @@
 	<img src="https://github.com/jadelasmar/holbertonschool-csharp/blob/main/images/cover-2.png"/><br/><br/><br/>
 	<img src="https://github.com/jadelasmar/holbertonschool-csharp/blob/main/images/cover-1.png"/>
 </p>
-	
-	
-	
