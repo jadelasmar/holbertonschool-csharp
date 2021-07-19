@@ -19,4 +19,4 @@ class List
         }
         return max;
     }
-}
+}s
