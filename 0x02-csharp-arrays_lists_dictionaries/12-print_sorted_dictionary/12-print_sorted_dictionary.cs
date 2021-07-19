@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-
-
 class Dictionary
 {
     public static void PrintSorted(Dictionary<string, string> myDict)
