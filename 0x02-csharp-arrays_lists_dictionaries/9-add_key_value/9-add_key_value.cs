@@ -7,4 +7,4 @@ class Dictionary
         myDict[key] = value;
         return myDict;
     }
-}s
+}
