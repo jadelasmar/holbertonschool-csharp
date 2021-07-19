@@ -1,28 +1,16 @@
 ﻿using System;
-
-namespace _10_print_line
+class Program
 {
-    class Program
+    public static void printLine(int length)
     {
-        static void Main(string[] args)
+        if (length > 0)
         {
-            printLine(3);
-            printLine(0);
-            printLine(12);
-            printLine(-98);
-        }
-
-        public static void printLine(int length)
-        {
-            if(length >0)
+            for (int i = 0; i < length; i++)
             {
-                for(int i=0;i<length;i++)
-                {
-                    Console.Write("_");
-                }
-                Console.WriteLine();
+                Console.Write("_");
             }
-            else Console.WriteLine();
+            Console.WriteLine();
         }
+        else Console.WriteLine();
     }
 }
