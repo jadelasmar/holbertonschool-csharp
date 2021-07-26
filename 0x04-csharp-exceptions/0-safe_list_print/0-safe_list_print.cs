@@ -7,18 +7,16 @@ class List
         int element = 0;
         try
         {
-            for (int i = 0; i < n; i++)
+            while (element < n)
             {
-                Console.WriteLine(myList[i]);
+                Console.WriteLine(myList[element]);
                 element++;
             }
-            return element;
-
         }
-        catch (Exception e)
+        catch
         {
-            Console.WriteLine(e.Message);
         }
+        return element;
 
     }
 }
