@@ -19,6 +19,10 @@ namespace Enemies
             {
                 health = value;
             }
+            else
+            {
+                throw new ArgumentException("Health must be greater than or equal to 0");
+            }
         }
         ///<summary>Creation of string name</summary>
         private string name = "(No name)";
@@ -43,7 +47,7 @@ namespace Enemies
         ///<summary>Creation of public override toString</summary>
         public override string ToString()
         {
-            return string.Format("Zombie Name: {0} / Total Health: {1}", name.ToString(), health.ToString());
+            return string.Format("Zombie Name: {0} / Total Health: {1}", name, health);
         }
     }
 }
