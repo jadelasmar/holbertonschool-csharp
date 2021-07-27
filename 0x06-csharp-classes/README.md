@@ -1,3 +1,3 @@
 # holbertonschool-csharp
-0x05. C# - Structs, Enumerations<br>
-Basic Coding : Structs, Enumerations, Override.
+0x06. C# - Classes & Namespaces<br>
+Basic Coding : Class, Constructor, Propert.
