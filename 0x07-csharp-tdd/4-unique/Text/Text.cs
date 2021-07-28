@@ -10,8 +10,27 @@ namespace Text
         ///<returns>index or -1 if no unique char</returns>
         public static int UniqueChar(string s)
         {
-            char[] arr = s.ToCharArray();
-            for(int i=0;i< x.Length; i++)
+            int count;
+            char[] x = s.ToCharArray();
+            for (int i = 0; i < x.Length; i++)
+            {
+                count = 0;
+                for (int j = 0; j < x.Length; j++)
+                {
+                    if (i != j)
+                    {
+                        if (s[i] == x[j])
+                        {
+                            count++;
+                        }
+                    }
+                }
+                if (count == 0)
+                {
+                    return i;
+                }
+            }
+            return -1;
         }
 
     }
