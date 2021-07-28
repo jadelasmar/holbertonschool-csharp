@@ -102,3 +102,5 @@
 0x07-csharp-tdd/5-camelcase/Text.Tests/obj/Debug/netcoreapp2.1/Text.Tests.csprojAssemblyReference.cache
 0x07-csharp-tdd/5-camelcase/Text.Tests/obj/Debug/netcoreapp2.1/Text.Tests.dll
 0x07-csharp-tdd/5-camelcase/Text.Tests/obj/Debug/netcoreapp2.1/Text.Tests.pdb
+.vscode/launch.json
+.vscode/tasks.json
