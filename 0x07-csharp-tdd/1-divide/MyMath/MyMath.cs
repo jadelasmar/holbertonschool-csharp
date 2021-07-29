@@ -2,36 +2,34 @@
 
 namespace MyMath
 {
-    ///<summary>Creation of class matrix</summary>
+    /// <summary>Matrix Class</summary>
     public class Matrix
     {
-        ///<summary>method to divide matrix</summary>
-        ///<param name="matrix">array of int</param>
-        ///<param name="num">num to divide</param>
-        ///<returns>new matrix divided</returns>
+        /// <summary>Add two int Method</summary>
+        /// <param name="matrix">Array of integers.</param>
+        /// <param name="num">number to divide.</param>
+        /// <returns>a new matrix containing divided elements.</returns>
         public static int[,] Divide(int[,] matrix, int num)
         {
-
-            if (matrix == null)
-            {
-                return (null);
-            }
-            try
-            {
-                int[,] newMat = new int[matrix.GetLength(0), matrix.GetLength(1)];
-                for (int i = 0; i < matrix.GetLength(0); i++)
-                {
-                    for (int j = 0; j < matrix.GetLength(1); j++)
-                    {
-                        newMat[i, j] = matrix[i, j] / num;
-                    }
-                }
-                return (newMat);
-            }
-            catch (DivideByZeroException)
+            if (num == 0)
             {
                 Console.WriteLine("Num cannot be 0");
                 return (null);
+            }
+            else if (matrix == null)
+            {
+                return (null);
+            }
+            else
+            {
+                for (int x = 0; x < matrix.GetLength(0); x++)
+                {
+                    for (int y = 0; y < matrix.GetLength(1); y++)
+                    {
+                        matrix[x, y] = matrix[x, y] / num;
+                    }
+                }
+                return (matrix);
             }
         }
     }
