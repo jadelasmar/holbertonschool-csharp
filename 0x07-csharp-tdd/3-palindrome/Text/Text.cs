@@ -14,7 +14,7 @@ namespace Text
         {
             if (s.Length < 2)
             {
-                return True;
+                return true;
             }
             ///<summary>convert to lower case and removing punctuation </summary>
             s = s.ToLower();
@@ -26,10 +26,10 @@ namespace Text
             {
                 if (s[i] != revS[i])
                 {
-                    return False;
+                    return false;
                 }
             }
-            return True;
+            return true;
         }
     }
 }
