@@ -3,33 +3,40 @@ using System.Text.RegularExpressions;
 
 namespace Text
 {
-    ///<summary>Creation of class str</summary>
-
+     /// <summary>Str Class</summary>
     public class Str
     {
-        ///<summary>search for palindrome</summary>
-        ///<param name="s">string of palindrome</param>
-        ///<returns>true/false</returns>
+        /// <summary>Find if a string is palindrome</summary>
+        /// <param name="s">List to palindrome.</param>
+        /// <returns>true or false.</returns>
         public static bool IsPalindrome(string s)
         {
-            if (s.Length < 2)
+            if(s.Length < 2)
             {
-                return true;
+                return(true);
             }
-            ///<summary>convert to lower case and removing punctuation </summary>
+
             s = s.ToLower();
-            s = Regex.Replace(s, "[:;.,'<>/?!@#$%^&*(){} ]", "");
-            char[] revS = s.ToCharArray();
-            Array.Reverse(revS);
-            ///<summary>check if s is the same with revS</summary>
-            for (int i = 0; i < s.Length; i++)
+
+            s = Regex.Replace(s, "[:;,. \t\n\r]", "");
+
+            //Console.WriteLine(s);
+
+            char[] revArr= s.ToCharArray();
+            Array.Reverse(revArr);
+
+            //Console.WriteLine(revArr);
+
+            for(int x = 0; x < s.Length; x++)
             {
-                if (s[i] != revS[i])
+                if(s[x] != revArr[x])
                 {
-                    return false;
+                    //Console.WriteLine("its false");
+                    return(false);
                 }
+                
             }
-            return true;
+            return (true);
         }
     }
 }
