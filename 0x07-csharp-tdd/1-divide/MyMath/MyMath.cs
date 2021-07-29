@@ -29,7 +29,6 @@ namespace MyMath
                     return matrix;
                 }
             }
-            ///<summary>division by zero exception</summary>
             catch (DivideByZeroException)
             {
                 Console.WriteLine("Num cannot be 0");
