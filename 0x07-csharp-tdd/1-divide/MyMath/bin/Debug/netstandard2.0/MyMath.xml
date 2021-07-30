@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MyMath</name>
+    </assembly>
+    <members>
+        <member name="T:MyMath.Matrix">
+            <summary>Creation of class matrix</summary>
+        </member>
+        <member name="M:MyMath.Matrix.Divide(System.Int32[0:,0:],System.Int32)">
+            <summary>method to divide matrix</summary>
+            <param name="matrix">array of int</param>
+            <param name="num">num to divide</param>
+            <returns>new matrix divided</returns>
+        </member>
+    </members>
+</doc>
