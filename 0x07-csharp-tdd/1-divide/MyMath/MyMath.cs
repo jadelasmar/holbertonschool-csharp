@@ -11,28 +11,25 @@ namespace MyMath
         ///<returns>new matrix divided</returns>
         public static int[,] Divide(int[,] matrix, int num)
         {
+            if (num == 0)
+            {
+                Console.WriteLine("Num cannot be 0");
+                return (null);
+            }
 
             if (matrix == null)
             {
                 return (null);
             }
-            try
+            for (int i = 0; i < matrix.GetLength(0); i++)
             {
-                int[,] newMat = new int[matrix.GetLength(0), matrix.GetLength(1)];
-                for (int i = 0; i < matrix.GetLength(0); i++)
+                for (int j = 0; j < matrix.GetLength(1); j++)
                 {
-                    for (int j = 0; j < matrix.GetLength(1); j++)
-                    {
-                        newMat[i, j] = matrix[i, j] / num;
-                    }
+                    matrix[i, j] = matrix[i, j] / num;
                 }
-                return (newMat);
             }
-            catch (DivideByZeroException)
-            {
-                Console.WriteLine("Num cannot be 0");
-                return (null);
-            }
+            return (matrix);
         }
+
     }
 }
