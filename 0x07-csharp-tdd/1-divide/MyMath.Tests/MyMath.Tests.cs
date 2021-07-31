@@ -21,9 +21,9 @@ namespace MyMath.Tests
         public void oddDiv()
         {
             int[,] matrix = new int[,] { { 98, 0, -12 }, { 21, 972, 44 }, { -727, 60, -2 } };
-            int num = 7;
+            int num = -7;
             int[,] newMat = Matrix.Divide(matrix, num);
-            int[,] ans = new int[,] { { 14, 0, -1 }, { 3, 138, 6 }, { -103, 8, -0 } };
+            int[,] ans = new int[,] { { -14, 0, 1 }, { -3, -138, -6 }, { 103, -8, 0 } };
             Assert.AreEqual(ans, newMat);
         }
         [Test]
