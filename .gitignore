@@ -388,3 +388,4 @@ FodyWeavers.xsd
 *.sln.iml
 w.vscode/tasks.json
 .vscode/launch.json
+.vscode/tasks.json
