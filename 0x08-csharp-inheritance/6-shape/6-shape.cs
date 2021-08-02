@@ -13,6 +13,9 @@ class Shape
         throw new NotImplementedException("Area() is not implemented");
     }
 }
+/// <summary>
+/// new subclass rectangle iherited from class shape
+/// </summary>
 class Rectangle : Shape
 {
     private int width;
@@ -49,6 +52,5 @@ class Rectangle : Shape
             }
             else { height = value; }
         }
-}
-
+    }
 }
