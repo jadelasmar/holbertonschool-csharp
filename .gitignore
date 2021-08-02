@@ -390,3 +390,12 @@ w.vscode/tasks.json
 .vscode/launch.json
 .vscode/tasks.json
 0x08-csharp-inheritance/0-is/Program.cs
+0x08-csharp-inheritance/1-instance/Program.cs
+0x08-csharp-inheritance/2-subclass/Program.cs
+0x08-csharp-inheritance/3-type_get/Program.cs
+0x08-csharp-inheritance/4-inherit/Program.cs
+0x08-csharp-inheritance/5-shape/Program.cs
+0x08-csharp-inheritance/6-shape/Program.cs
+0x08-csharp-inheritance/7-shape/Program.cs
+0x08-csharp-inheritance/8-shape/Program.cs
+0x08-csharp-inheritance/9-shape/Program.cs
