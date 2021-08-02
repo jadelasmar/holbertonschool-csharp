@@ -5,7 +5,7 @@ using System;
 class Shape
 {
     /// <summary>
-    /// public virtual method
+    /// public property
     /// </summary>
     /// <returns>string</returns>
     public virtual int Area()
