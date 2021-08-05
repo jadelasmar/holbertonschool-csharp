@@ -88,7 +88,7 @@ Complete this source code.
 * You can find the source code [here](https://github.com/holbertonschool/0x00.cs/blob/master/10-copy_cut_paste.cs)
 * Your code should be exactly 15 lines long
 * You are not allowed to use any loops or conditional statements
-  * ```word_first_3`` should contain the first 3 letters of the variable ```word```
+  * ```word_first_3``` should contain the first 3 letters of the variable ```word```
   * ```word_last_2``` should contain the last 2 letters of the variable ```word```
   * ```middle_word``` should contain the value of the variable ```word``` without the first and last letters
 
