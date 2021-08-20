@@ -403,3 +403,6 @@ w.vscode/tasks.json
 0x09-csharp-linear_algebra/6-vector_addition/Program.cs
 0x09-csharp-linear_algebra/9-vector_scalar_mul/Program.cs
 0x09-csharp-linear_algebra/12-dot_product/Program.cs
+0x09-csharp-linear_algebra/14-matrix_addition/Program.cs
+0x09-csharp-linear_algebra/16-matrix_scalar_mul/Program.cs
+0x09-csharp-linear_algebra/18-matrix_matrix_mul/Program.cs
