@@ -411,3 +411,4 @@ w.vscode/tasks.json
 0x09-csharp-linear_algebra/25-matrix_transpose/Program.cs
 0x09-csharp-linear_algebra/test/Program.cs
 0x09-csharp-linear_algebra/test/test.csproj
+0x09-csharp-linear_algebra/28-determinant/Program.cs
