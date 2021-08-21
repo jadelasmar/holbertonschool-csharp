@@ -1,6 +1,16 @@
 using System;
+/// <summary>
+/// new matrixmath class
+/// </summary>
 class MatrixMath
 {
+    /// <summary>
+    /// method to shear a 2D matrix by factor
+    /// </summary>
+    /// <param name="matrix"></param>
+    /// <param name="direction"></param>
+    /// <param name="factor"></param>
+    /// <returns>new matrix sheared</returns>
     public static double[,] Shear2D(double[,] matrix, char direction, double factor)
     {
         if (direction == 'x' || direction == 'y' & matrix.GetLength(0) == 2 && matrix.GetLength(1) == 2)
