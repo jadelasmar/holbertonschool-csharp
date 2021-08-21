@@ -406,3 +406,8 @@ w.vscode/tasks.json
 0x09-csharp-linear_algebra/14-matrix_addition/Program.cs
 0x09-csharp-linear_algebra/16-matrix_scalar_mul/Program.cs
 0x09-csharp-linear_algebra/18-matrix_matrix_mul/Program.cs
+0x09-csharp-linear_algebra/20-matrix_rotate_2D/Program.cs
+0x09-csharp-linear_algebra/24-matrix_shear_2D/Program.cs
+0x09-csharp-linear_algebra/25-matrix_transpose/Program.cs
+0x09-csharp-linear_algebra/test/Program.cs
+0x09-csharp-linear_algebra/test/test.csproj
