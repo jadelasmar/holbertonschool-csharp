@@ -13,44 +13,38 @@ class MatrixMath
     /// <returns>new matrix sheared</returns>
     public static double[,] Shear2D(double[,] matrix, char direction, double factor)
     {
-        if (direction == 'x' || direction == 'y' & matrix.GetLength(0) == 2 && matrix.GetLength(1) == 2)
-        {
-            double[,] mat = new double[2, 2];
-            double[,] shear =  {
-                { 1, 0},
-                { 0, 1}
-            };
-            if (direction == 'x')
-            {
-                shear[1, 0] = factor;
-            }
-            else
-            {
-                shear[0, 1] = factor;
-            }
-            int row = matrix.GetLength(0);
-            int col1 = matrix.GetLength(1);
-            int col2 = shear.GetLength(1);
-            double[,] mult = new double[row, col2];
-            for (int i = 0; i < row; i++)
-            {
-                for (int j = 0; j < col2; j++)
-                {
-                    double count = 0;
-                    for (int k = 0; k < col1; k++)
-                    {
-                        count += matrix[i, k] * shear[k, j];
+        int shearX = 0, shearY = 0;
 
+        if (direction == 'x') { shearY = 1; }
+        else if (direction == 'y') { shearX = 1; }
+        else { return new double[,]{{-1}}; }
+
+        double[,] shearMatrix = new double[,] { 
+            {1, shearX * factor},
+            {shearY * factor, 1}
+        };
+        
+        if (matrix is double[,] && matrix.GetLength(1) == 2 && matrix.GetLength(0) == 2)
+        {
+            int rowM1 = matrix.GetLength(0);
+            int colM1 = matrix.GetLength(1);
+            int colM2 = shearMatrix.GetLength(1);
+            int rowM2 = shearMatrix.GetLength(0);
+
+            double[,] mulMatrix = new double[rowM1, colM2];
+
+            for (int col = 0; col < colM1; col++)
+            {
+                for (int row = 0; row < rowM1; row++)
+                {
+                    for (int ixj = 0; ixj < colM2; ixj++)
+                    {
+                        mulMatrix[row, ixj] += matrix[row, col] * shearMatrix[col, ixj];
                     }
-                    mult[i, j] = count;
                 }
             }
-            return mult;
+            return mulMatrix;
         }
-        else
-        {
-            double[,] min1 = { { -1 } };
-            return min1;
-        }
+        else  { return new double[,]{{-1}}; }
     }
 }
