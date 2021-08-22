@@ -12,7 +12,7 @@ class MatrixMath
     /// <returns>new matrix</returns>
     public static double[,] MultiplyScalar(double[,] matrix, double scalar)
     {
-        if (matrix.GetLength(0) == 2)
+        if (matrix.GetLength(0) == 2 && matrix.GetLength(1) == 2)
         {
             double[,] mult2 = {
                 {0,0},
@@ -27,7 +27,7 @@ class MatrixMath
             }
             return mult2;
         }
-        else if (matrix.GetLength(0) == 3)
+        else if (matrix.GetLength(0) == 3 && matrix.GetLength(1) == 3)
         {
             double[,] mult3 = {
                 {0,0,0},
