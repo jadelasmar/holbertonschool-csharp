@@ -20,7 +20,7 @@ class MatrixMath
             double[,] shear =  {
                 { 1, 0},
                 { 0, 1}
-            };s
+            };
             if (direction == 'x')
             {
                 shear[1, 0] = factor;
