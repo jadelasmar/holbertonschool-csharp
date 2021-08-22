@@ -12,30 +12,35 @@ class MatrixMath
     /// <returns>new matrix</returns>
     public static double[,] Rotate2D(double[,] matrix, double angle)
     {
-        double[,] fail = { { -1 } };
-
-        if (matrix == null || matrix.GetLength(0) == 0 || matrix.GetLength(1) == 0)
-            return (fail);
-
-        if (matrix.GetLength(0) != 2 || matrix.GetLength(1) != 2)
-            return (fail);
-
-        double[,] total = new double[2, 2];
-
-        double x1 = matrix[0, 0];
-        double y1 = matrix[0, 1];
-        double x2 = matrix[1, 0];
-        double y2 = matrix[1, 1];
-
         double cos = Math.Cos(angle);
         double sin = Math.Sin(angle);
+        double[,] rotateMatrix = new double[,] {
+            {cos, sin},
+            {-sin, cos}
+        };
 
-        total[0, 0] = Math.Round((x1 * cos), 2) - Math.Round((y1 * sin), 2);
-        total[0, 1] = Math.Round((x1 * sin), 2) + Math.Round((y1 * cos), 2);
-        total[1, 0] = Math.Round((x2 * cos), 2) - Math.Round((y2 * sin), 2);
-        total[1, 1] = Math.Round((x2 * sin), 2) + Math.Round((y2 * cos), 2);
+        if (matrix is double[,] && matrix.GetLength(0) == 2 && matrix.GetLength(1) == 2)
+        {
+            int rowM1 = matrix.GetLength(0);
+            int colM1 = matrix.GetLength(1);
+            int colM2 = rotateMatrix.GetLength(1);
+            int rowM2 = rotateMatrix.GetLength(0);
 
-        return (total);
+            double[,] mulMatrix = new double[rowM1, colM2];
+
+            for (int col = 0; col < colM1; col++)
+            {
+                for (int row = 0; row < rowM1; row++)
+                {
+                    for (int ixj = 0; ixj < colM2; ixj++)
+                    {
+                        mulMatrix[row, ixj] = Math.Round(mulMatrix[row, ixj] + matrix[row, col] * rotateMatrix[col, ixj], 2);
+                    }
+                }
+            }
+            return mulMatrix;
+        }
+        else { return new double[,] { { -1 } }; }
 
     }
 }
