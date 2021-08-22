@@ -12,16 +12,33 @@ class MatrixMath
     /// <returns>new matrix</returns>
     public static double[,] Rotate2D(double[,] matrix, double angle)
     {
-        if (matrix is double[,] && matrix.GetLength(0) == 2 && matrix.GetLength(1) == 2)
+        if (matrix.GetLength(0) == 2 && matrix.GetLength(1) == 2)
         {
             double[,] mat = new double[2, 2];
             double cos = Math.Cos(angle);
             double sin = Math.Sin(angle);
-            mat[0, 0] = Math.Round((cos * matrix[0, 0]), 2) - Math.Round((sin * matrix[0, 1]), 2);
-            mat[0, 1] = Math.Round((sin * matrix[0, 0]), 2) + Math.Round((cos * matrix[0, 1]), 2);
-            mat[1, 0] = Math.Round((cos * matrix[1, 0]), 2) - Math.Round((sin * matrix[1, 1]), 2);
-            mat[1, 1] = Math.Round((sin * matrix[1, 0]), 2) + Math.Round((cos * matrix[1, 1]), 2);
-            return mat;
+            double[,] rot = new double[,]{
+                {cos,sin},
+                {-sin,cos}
+            };
+            int row = matrix.GetLength(0);
+            int col1 = matrix.GetLength(1);
+            int col2 = rot.GetLength(1);
+            double[,] mult = new double[row, col2];
+            for (int i = 0; i < row; i++)
+            {
+                for (int j = 0; j < col2; j++)
+                {
+                    double count = 0;
+                    for (int k = 0; k < col1; k++)
+                    {
+                        count = Math.Round(count + matrix[i, k] * rot[k, j], 2);
+
+                    }
+                    mult[i, j] = count;
+                }
+            }
+            return mult;
         }
 
         else
