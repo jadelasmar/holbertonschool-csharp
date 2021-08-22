@@ -26,11 +26,7 @@ class MatrixMath
             deter = (Math.Round(matrix[0, 0] * x - matrix[0, 1] * y + matrix[0, 2] * z, 2));
             return deter;
         }
-        else
-        {
-            double[,] min1 = { { -1 } };
-            return min1;
-        }
+        else return -1;
 
     }
 }
