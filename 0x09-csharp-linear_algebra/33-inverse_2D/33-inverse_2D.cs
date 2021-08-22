@@ -21,8 +21,8 @@ class MatrixMath
                 return min1;
             }
             double[,] inv = new double[,]{
-                {(1 / det)*matrix[1,1],-(1 / det)*matrix[0,1]},
-                {-(1 / det)*matrix[1,0],(1 / det)*matrix[0,0]}
+                {Math.Round((1 / det)*matrix[1,1]),-Math.Round((1 / det)*matrix[0,1])},
+                {-Math.Round((1 / det)*matrix[1,0]),Math.Round((1 / det)*matrix[0,0])}
             };
             return inv;
         }
