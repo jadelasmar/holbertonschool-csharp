@@ -28,11 +28,24 @@ class MatrixMath
             {
                 shear[1, 0] = factor;
             }
-            mat[0, 0] = (shear[0, 0] * matrix[0, 0]) + (shear[0, 1] * matrix[0, 1]);
-            mat[0, 1] = (shear[1, 0] * matrix[0, 0]) + (shear[1, 1] * matrix[0, 1]);
-            mat[1, 0] = (shear[0, 0] * matrix[1, 0]) + (shear[0, 1] * matrix[1, 1]);
-            mat[1, 1] = (shear[1, 0] * matrix[1, 0]) + (shear[1, 1] * matrix[1, 1]);
-            return mat;
+            int row = matrix.GetLength(0);
+            int col1 = matrix.GetLength(1);
+            int col2 = shear.GetLength(1);
+            double[,] mult = new double[row, col2];
+            for (int i = 0; i < row; i++)
+            {
+                for (int j = 0; j < col2; j++)
+                {
+                    double count = 0;
+                    for (int k = 0; k < col1; k++)
+                    {
+                        count = Math.Round(count + matrix[i, k] * shear[k, j], 2);
+
+                    }
+                    mult[i, j] = count;
+                }
+            }
+            return mult;
         }
         else
         {
