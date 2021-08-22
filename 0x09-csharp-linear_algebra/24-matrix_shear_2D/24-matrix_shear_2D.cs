@@ -22,11 +22,11 @@ class MatrixMath
             };
             if (direction == 'x')
             {
-                shear[0, 1] = factor;
+                shear[1, 0] = factor;
             }
             else
             {
-                shear[1, 0] = factor;
+                shear[0, 1] = factor;
             }
             int row = matrix.GetLength(0);
             int col1 = matrix.GetLength(1);
@@ -39,7 +39,7 @@ class MatrixMath
                     double count = 0;
                     for (int k = 0; k < col1; k++)
                     {
-                        count = Math.Round(count + matrix[i, k] * shear[k, j], 2);
+                        count += matrix[i, k] * shear[k, j];
 
                     }
                     mult[i, j] = count;
