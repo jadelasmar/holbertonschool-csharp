@@ -38,7 +38,7 @@ class ImageProcessor
 
             for (int i = 0; i < rgbValues.Length; i++)
                 rgbValues[i] = (byte)(255 - rgbValues[i]);
-                
+
             System.Runtime.InteropServices.Marshal.Copy(rgbValues, 0, ptr, bytes);
 
             bmp.UnlockBits(bmpData);
@@ -134,16 +134,15 @@ class ImageProcessor
     {
         Parallel.ForEach(filenames, file =>
         {
-            using (Bitmap bmp = new Bitmap(file))
-            {
-                string extension = Path.GetExtension(file);
-                string filename = Path.GetFileNameWithoutExtension(file);
+            var ext = Path.GetExtension(myFile);
+            var fName = Path.GetFileNameWithoutExtension(myFile);
+            fName += "_bw" + ext;
 
-                int width = height * bmp.Width / bmp.Height;
-                Image img = bmp.GetThumbnailImage(width, height, null, IntPtr.Zero);
+            Bitmap bmp = new Bitmap(myFile);
+            int width = height * bmp.Width / bmp.Height;
+            Image img = bmp.GetThumbnailImage(width, height, null, IntPtr.Zero);
+            bmp.Save($"{fName}");
 
-                img.Save(filename + "_th" + extension);
-            }
         });
     }
 }
