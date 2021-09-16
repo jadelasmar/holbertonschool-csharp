@@ -27,9 +27,7 @@ class ImageProcessor
             Bitmap bmp = new Bitmap(myFile);
 
             Rectangle rect = new Rectangle(0, 0, bmp.Width, bmp.Height);
-            System.Drawing.Imaging.BitmapData bmpData =
-                bmp.LockBits(rect, System.Drawing.Imaging.ImageLockMode.ReadWrite,
-                bmp.PixelFormat);
+            BitmapData bmpData = bmp.LockBits(rect, ImageLockMode.ReadWrite, bmp.PixelFormat);
 
             IntPtr ptr = bmpData.Scan0;
 
@@ -38,11 +36,9 @@ class ImageProcessor
 
             System.Runtime.InteropServices.Marshal.Copy(ptr, rgbValues, 0, bytes);
 
-            for (int counter = 0; counter < rgbValues.Length; counter += 1)
-            {
-                rgbValues[counter] = (byte)(255 - rgbValues[counter]);
-            }
-
+            for (int i = 0; i < rgbValues.Length; i++)
+                rgbValues[i] = (byte)(255 - rgbValues[i]);
+                
             System.Runtime.InteropServices.Marshal.Copy(rgbValues, 0, ptr, bytes);
 
             bmp.UnlockBits(bmpData);
@@ -77,10 +73,10 @@ class ImageProcessor
 
             System.Runtime.InteropServices.Marshal.Copy(ptr, rgbValues, 0, bytes);
 
-            for (int counter = 0; counter < rgbValues.Length - 3; counter += 3)
+            for (int i = 0; i < rgbValues.Length - 3; i += 3)
             {
-                byte gray = (byte)((rgbValues[counter] * 0.21 + rgbValues[counter + 1] * 0.71 + rgbValues[counter + 2] * 0.071));
-                rgbValues[counter] = rgbValues[counter + 1] = rgbValues[counter + 2] = gray;
+                byte gray = (byte)((rgbValues[i] * 0.21 + rgbValues[i + 1] * 0.71 + rgbValues[i + 2] * 0.071));
+                rgbValues[i] = rgbValues[i + 1] = rgbValues[i + 2] = gray;
             }
 
             System.Runtime.InteropServices.Marshal.Copy(rgbValues, 0, ptr, bytes);
@@ -117,13 +113,13 @@ class ImageProcessor
 
             System.Runtime.InteropServices.Marshal.Copy(ptr, rgbValues, 0, bytes);
 
-            for (int counter = 0; counter < rgbValues.Length - 3; counter += 3)
+            for (int i = 0; i < rgbValues.Length - 3; i += 3)
             {
-                byte gray = (byte)((rgbValues[counter] * 0.21 + rgbValues[counter + 1] * 0.71 + rgbValues[counter + 2] * 0.071));
+                byte gray = (byte)((rgbValues[i] * 0.21 + rgbValues[i + 1] * 0.71 + rgbValues[i + 2] * 0.071));
 
                 if (gray >= threshold)
-                    rgbValues[counter] = rgbValues[counter + 1] = rgbValues[counter + 2] = 255;
-                else rgbValues[counter] = rgbValues[counter + 1] = rgbValues[counter + 2] = 0;
+                    rgbValues[i] = rgbValues[i + 1] = rgbValues[i + 2] = 255;
+                else rgbValues[i] = rgbValues[i + 1] = rgbValues[i + 2] = 0;
             }
 
             System.Runtime.InteropServices.Marshal.Copy(rgbValues, 0, ptr, bytes);
@@ -135,18 +131,19 @@ class ImageProcessor
     }
 
     public static void Thumbnail(string[] filenames, int height)
-	{
-		Parallel.ForEach(filenames, file =>{
-			using (Bitmap bmp = new Bitmap(file))
-			{
-				string extension = Path.GetExtension(file);
-        		string filename = Path.GetFileNameWithoutExtension(file);
+    {
+        Parallel.ForEach(filenames, file =>
+        {
+            using (Bitmap bmp = new Bitmap(file))
+            {
+                string extension = Path.GetExtension(file);
+                string filename = Path.GetFileNameWithoutExtension(file);
 
-				int width = height * bmp.Width / bmp.Height;
-				Image img  = bmp.GetThumbnailImage(width , height, null, IntPtr.Zero);
+                int width = height * bmp.Width / bmp.Height;
+                Image img = bmp.GetThumbnailImage(width, height, null, IntPtr.Zero);
 
-				img.Save(filename + "_th" + extension);
-			}
-		});
-	}
+                img.Save(filename + "_th" + extension);
+            }
+        });
+    }
 }
