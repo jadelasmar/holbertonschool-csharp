@@ -12,6 +12,6 @@ class Program
         else
             filenames = Directory.GetFiles("images/", "*.jpg");
 
-        ImageProcessor.Thumbnail(filenames,5);
+        ImageProcessor.Inverse(filenames);
     }
 }
