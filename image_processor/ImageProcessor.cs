@@ -132,7 +132,7 @@ class ImageProcessor
 
     public static void Thumbnail(string[] filenames, int height)
     {
-        Parallel.ForEach(filenames, file =>
+        Parallel.ForEach(filenames, myFile =>
         {
             var ext = Path.GetExtension(myFile);
             var fName = Path.GetFileNameWithoutExtension(myFile);
