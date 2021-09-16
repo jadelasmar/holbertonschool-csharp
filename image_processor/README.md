@@ -1,4 +1,4 @@
-# 0x09. C# - Linear Algebra
+# Image Processing
 
 # Learning Objectives
 * What is parallel programming?
