@@ -3,13 +3,17 @@
 namespace image_processor
 {
     /// <summary>
-    /// 
+    /// new class ImageProcessor
     /// </summary>
-    class Program
+    class ImageProcessor
     {
-        static void Main(string[] args)
+        /// <summary>
+        /// method that inverts an image’s color.
+        /// </summary>
+        /// <param name="filenames"></param>
+        public static void Inverse(string[] filenames)
         {
-            Console.WriteLine("Hello World!");
+            
         }
     }
 }
