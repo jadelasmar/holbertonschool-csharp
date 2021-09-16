@@ -135,36 +135,18 @@ class ImageProcessor
     }
 
     public static void Thumbnail(string[] filenames, int height)
-    {
-        Parallel.ForEach(filenames, (myFile) =>
-        {
-            var ext = Path.GetExtension(myFile);
-            var fName = Path.GetFileNameWithoutExtension(myFile);
-            fName += "_th" + ext;
+	{
+		Parallel.ForEach(filenames, file =>{
+			using (Bitmap bmp = new Bitmap(file))
+			{
+				string extension = Path.GetExtension(file);
+        		string filename = Path.GetFileNameWithoutExtension(file);
 
-            Bitmap bmp = new Bitmap(myFile);
+				int width = height * bmp.Width / bmp.Height;
+				Image img  = bmp.GetThumbnailImage(width , height, null, IntPtr.Zero);
 
-            Rectangle rect = new Rectangle(0, 0, bmp.Width, bmp.Height);
-            System.Drawing.Imaging.BitmapData bmpData =
-                bmp.LockBits(rect, System.Drawing.Imaging.ImageLockMode.ReadWrite,
-                bmp.PixelFormat);
-
-            IntPtr ptr = bmpData.Scan0;
-
-            int bytes = Math.Abs(bmpData.Stride) * bmp.Height;
-            byte[] rgbValues = new byte[bytes];
-
-            System.Runtime.InteropServices.Marshal.Copy(ptr, rgbValues, 0, bytes);
-
-            int width = bmp.Width / bmp.Height * height;
-
-            Image img = bmp.GetThumbnailImage(width, height, null, IntPtr.Zero);
-
-            System.Runtime.InteropServices.Marshal.Copy(rgbValues, 0, ptr, bytes);
-
-            bmp.UnlockBits(bmpData);
-
-            bmp.Save($"{fName}");
-        });
-    }
+				img.Save(filename + "_th" + extension);
+			}
+		});
+	}
 }
