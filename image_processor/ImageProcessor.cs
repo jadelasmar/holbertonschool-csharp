@@ -15,38 +15,47 @@ class ImageProcessor
     /// method to invert colors
     /// </summary>
     /// <param name="filenames"></param>
-     public static void Inverse(string[] filenames)
-    {
+    public static void Inverse(string[] filenames) {
 
-        Parallel.ForEach(filenames, (myFile) =>
+        // Iterate through all .jpg files in images directory
+        Parallel.ForEach(filenames, (imagePath) =>
         {
-
-            Bitmap image = new Bitmap(myFile);
-            var extension = Path.GetExtension(myFile);
-            var fileName = Path.GetFileNameWithoutExtension(myFile);
-            fileName += "_inverse" + extension;
-            Rectangle rect = new Rectangle(0, 0, image.Width, image.Height);
-            System.Drawing.Imaging.BitmapData imageData =
-            image.LockBits(rect, System.Drawing.Imaging.ImageLockMode.ReadWrite,
-            image.PixelFormat);
-
-            IntPtr pointer = imageData.Scan0;
-
-            var bitmapBytes = Math.Abs(imageData.Stride) * image.Height;
-            var rgbValues = new byte[bitmapBytes];
-
-            System.Runtime.InteropServices.Marshal.Copy(pointer, rgbValues, 0, bitmapBytes);
-
-            for (int counter = 0; counter < rgbValues.Length; counter += 1)
             {
-                rgbValues[counter] = (byte)(255 - rgbValues[counter]);
+                // For each image file create a new Bitmap object
+                Bitmap image = new Bitmap(imagePath);
+
+                // Lock the bitmaps bits
+                BitmapData bmpData = image.LockBits(
+                    new Rectangle(0, 0, image.Width, image.Height),
+                    ImageLockMode.ReadWrite, image.PixelFormat);
+
+                // Determine size of image in bytes
+                int bytes = bmpData.Stride * bmpData.Height;
+
+                // Allocate buffer size of image bytes
+                byte[] rgbBuffer = new byte[bytes];
+
+                // Safely copy bitmap data to buffer
+                System.Runtime.InteropServices.Marshal.Copy(bmpData.Scan0, rgbBuffer, 0, bytes);
+
+                // Iterate through RGB buffer, inverting each color value
+                for (var i = 0; i < bytes; i++)
+                    rgbBuffer[i] = (byte)(255 - rgbBuffer[i]);
+
+                // Copy values back from buffer
+                System.Runtime.InteropServices.Marshal.Copy(rgbBuffer, 0, bmpData.Scan0, bytes);
+
+                // Unlock bits
+                image.UnlockBits(bmpData);
+
+                // Extract filename from path and edit for new save
+                string[] nameSplit = imagePath.Split(new Char[] {'/', '.'});
+                String newFilename = nameSplit[nameSplit.Length - 2] + "_inverse." +
+                                        nameSplit[nameSplit.Length - 1];
+
+                // Save inverted image to new file
+                image.Save(newFilename);
             }
-
-
-            System.Runtime.InteropServices.Marshal.Copy(rgbValues, 0, pointer, bitmapBytes);
-            image.UnlockBits(imageData);
-
-            image.Save($"{fileName}");
         });
     }
 
