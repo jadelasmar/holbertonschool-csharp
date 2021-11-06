@@ -90,7 +90,15 @@ public class Door : Base, IInteractive
 /// </summary>
 public class Decoration : Base, IInteractive, IBreakable
 {
+    /// <summary>
+    /// bool isquest
+    /// </summary>
+    /// <value></value>
     public bool isQuestItem { set; get; }
+    /// <summary>
+    /// int durab
+    /// </summary>
+    /// <value></value>
     public int durability { set; get; }
     /// <summary>
     /// decoration constructor
