@@ -126,7 +126,7 @@ class Queue<T>
             while (head != null)
             {
                 con.Append(head.value);
-                if (typeof(T) == typeof(String) && head.next!=null)
+                if (typeof(T) == typeof(String) && head.next != null)
                 {
                     con.Append(" ");
                 }
