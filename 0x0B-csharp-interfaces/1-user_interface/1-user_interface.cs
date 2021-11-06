@@ -1,55 +1,82 @@
 ﻿using System;
 
 /// <summary>
-/// new abstract class
+/// A base class.
 /// </summary>
-abstract class Base
-{
-    public string name
-    {
-        get;
-        set;
-    }
+abstract class Base {
 
-    //override of ToString()
-    public override string ToString()
-    {
-        return name + " is a " + GetType().Name;
-    }
+    public string name { get; set; }
 
     /// <summary>
-    /// new interface IInteractive
+    /// Convert the object to a string.
     /// </summary>
-    public interface IInteractive
-    {
-        void Interact();
+    public override string ToString() {
+        return $"{name} is a {this.GetType()}";
     }
+
+}
+
+class TestObject : IInteractive, IBreakable, ICollectable {
+
+    public int durability { get; set; }
+    public bool isCollected { get; set; }
+
+    public void Interact() {
+        throw new NotImplementedException();
+    }
+
+    public void Break() {
+        throw new NotImplementedException();
+    }
+
+    public void Collect() {
+        throw new NotImplementedException();
+    }
+
+}
+
+/// <summary>
+/// Interface defining an interactable object.
+/// </summary>
+public interface IInteractive {
 
     /// <summary>
-    /// new interface IBreakable
+    /// Interact with this object.
     /// </summary>
-    public interface IBreakable
-    {
-        int durability { get; set; }
-        void Break();
-    }
+    void Interact();
+
+}
+
+/// <summary>
+/// Interface defining a breakable object.
+/// </summary>
+public interface IBreakable {
 
     /// <summary>
-    /// new interface ICollectable
+    /// The durability of the breakable object.
     /// </summary>
-    public interface ICollectable
-    {
-        bool isCollected { get; set; }
-        void Collect();
-    }
+    int durability { get; set; }
 
-    public class TestObject : Base, IInteractive, IBreakable, ICollectable
-    {
-        public int durability { get; set; }
-        public bool isCollected { get; set; }
-        public void Interact() { }
-        public void Break() { }
-        public void Collect() { }
-    }
+    /// <summary>
+    /// Break this object.
+    /// </summary>
+    void Break();
+
+}
+
+/// <summary>
+/// Interface defining a collectable object.
+/// </summary>
+public interface ICollectable {
+
+    /// <summary>
+    /// Denotes whether the object has been collected.
+    /// </summary>
+    bool isCollected { get; set; }
+
+    /// <summary>
+    /// Collect this object.
+    /// </summary>
+    void Collect();
 
 }
