@@ -1,7 +1,4 @@
 ﻿using System;
-
-namespace _0_queue
-{
     /// <summary>
     /// generic queue class
     /// </summary>
@@ -17,4 +14,3 @@ namespace _0_queue
             return typeof(T);
         }
     }
-}
