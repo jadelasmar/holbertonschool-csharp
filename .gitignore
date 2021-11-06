@@ -390,4 +390,4 @@ w.vscode/tasks.json
 .vscode/launch.json
 .vscode/tasks.json
 
-/Program.cs
+*.Program.cs
