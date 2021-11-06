@@ -1,82 +1,82 @@
 ﻿using System;
-
 /// <summary>
-/// A base class.
+/// new abstrace Base
 /// </summary>
-abstract class Base {
-
-    public string name { get; set; }
-
+public abstract class Base
+{
     /// <summary>
-    /// Convert the object to a string.
+    /// r
     /// </summary>
-    public override string ToString() {
-        return $"{name} is a {this.GetType()}";
+    /// <value></value>
+    public string name
+    {
+        get;
+        set;
     }
-
+    /// <summary>
+    /// override toString
+    /// </summary>
+    /// <returns></returns>
+    public override string ToString()
+    {
+        return name + " is a " + GetType().Name;
+    }
 }
-
-class TestObject : IInteractive, IBreakable, ICollectable {
-
-    public int durability { get; set; }
-    public bool isCollected { get; set; }
-
-    public void Interact() {
-        throw new NotImplementedException();
-    }
-
-    public void Break() {
-        throw new NotImplementedException();
-    }
-
-    public void Collect() {
-        throw new NotImplementedException();
-    }
-
-}
-
 /// <summary>
-/// Interface defining an interactable object.
+/// new interface IInteractive
 /// </summary>
-public interface IInteractive {
-
+public interface IInteractive
+{
     /// <summary>
     /// Interact with this object.
     /// </summary>
     void Interact();
-
 }
-
 /// <summary>
-/// Interface defining a breakable object.
+/// new interface IBreakable
 /// </summary>
-public interface IBreakable {
-
+public interface IBreakable
+{
     /// <summary>
-    /// The durability of the breakable object.
+    /// durability of object
     /// </summary>
+    /// <value></value>
     int durability { get; set; }
-
     /// <summary>
-    /// Break this object.
+    /// break
     /// </summary>
     void Break();
-
 }
 
 /// <summary>
-/// Interface defining a collectable object.
+/// new interface ICollectable
 /// </summary>
-public interface ICollectable {
-
+public interface ICollectable
+{
     /// <summary>
-    /// Denotes whether the object has been collected.
+    /// is collected ?
     /// </summary>
+    /// <value></value>
     bool isCollected { get; set; }
-
     /// <summary>
-    /// Collect this object.
+    /// collect
     /// </summary>
     void Collect();
+}
 
+/// <summary>
+/// class TestObject
+/// </summary>
+public class TestObject : Base, IInteractive, IBreakable, ICollectable
+{
+    ///durability
+    public int durability { get; set; }
+    ///iscollected
+    public bool isCollected { get; set; }
+    ///interact
+    public void Interact() { }
+    ///break
+    public void Break() { }
+    ///collect
+    public void Collect() { }
 }
