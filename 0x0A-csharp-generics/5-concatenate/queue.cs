@@ -6,16 +6,8 @@ using System;
 /// <typeparam name="T"></typeparam>
 class Queue<T>
 {
-    public Node head
-    {
-        get;
-        set;
-    }
-    public Node tail
-    {
-        get;
-        set;
-    }
+    public Node head;
+    public Node tail;
     public int count;
 
     /// <summary>
@@ -32,11 +24,7 @@ class Queue<T>
     public class Node
     {
         public T value;
-        public Node next
-        {
-            get;
-            set;
-        }
+        public Node next = null;
 
         /// <summary>
         /// constructor
