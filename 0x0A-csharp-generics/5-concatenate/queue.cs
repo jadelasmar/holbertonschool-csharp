@@ -121,12 +121,7 @@ class Queue<T>
     /// <returns></returns>
     public String Concatenate()
     {
-        if (head == null)
-        {
-            Console.WriteLine("Queue is empty");
-            return null;
-        }
-        else if (typeof(T) == typeof(String) || typeof(T) == typeof(Char))
+        if (typeof(T) == typeof(String) || typeof(T) == typeof(Char))
         {
             var con = new StringBuilder("");
             while (head != null)
@@ -140,7 +135,12 @@ class Queue<T>
             }
             return con.ToString();
         }
-        Console.WriteLine("Concatenate() is for a queue of Strings or Chars only.");
+        else if (head == null)
+        {
+            Console.WriteLine("Queue is empty");
+            return null;
+        }
+        else Console.WriteLine("Concatenate() is for a queue of Strings or Chars only.");
         return null;
     }
 }
