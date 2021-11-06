@@ -119,28 +119,44 @@ class Queue<T>
     /// concatenate a node
     /// </summary>
     /// <returns></returns>
-    public String Concatenate()
-    {
-        if (typeof(T) == typeof(String) || typeof(T) == typeof(Char))
-        {
-            var con = new StringBuilder("");
-            while (head != null)
-            {
-                con.Append(head.value);
-                if (typeof(T) == typeof(String) && head.next!=null)
-                {
-                    con.Append(" ");
+    public String Concatenate() {
+
+        if (head != null) {
+
+            if (typeof(T) == typeof(String)) {
+
+                Node runner = head.next;
+                String concat = (String)(Object)head.value;
+
+                while (runner != null) {
+                    concat = $"{concat} {(String)(Object)runner.value}";
+                    runner = runner.next;
                 }
-                head = head.next;
+
+                return concat;
+
+            } else if (typeof(T) == typeof(Char)) {
+
+                Node runner = head.next;
+                String concat = ((Char)(Object)head.value).ToString();
+
+                while (runner != null) {
+                    concat = $"{concat}{((Char)(Object)runner.value).ToString()}";
+                    runner = runner.next;
+                }
+
+                return concat;
+
+            } else {
+
+                Console.WriteLine("Concatenate() is for a queue of Strings or Chars only.");
+                return null;
+
             }
-            return con.ToString();
+
         }
-        else if (head == null)
-        {
-            Console.WriteLine("Queue is empty");
-            return null;
-        }
-        else Console.WriteLine("Concatenate() is for a queue of Strings or Chars only.");
+        Console.WriteLine("Queue is empty");
         return null;
     }
+
 }
