@@ -65,15 +65,13 @@ public class Player
     /// <param name="damage"></param>
     public void TakeDamage(float damage)
     {
-        float dmg = 0;
         if (damage >= 0)
         {
             Console.WriteLine("{0} takes {1} damage!", name, damage);
-            dmg = hp - damage;
+            ValidateHP(hp - damage);
         }
-
         else Console.WriteLine("{0} takes 0 damage!", name);
-        ValidateHP(dmg);
+
     }
     /// <summary>
     /// method to print Heal
@@ -81,15 +79,12 @@ public class Player
     /// <param name="heal"></param>
     public void HealDamage(float heal)
     {
-        float hl = 0;
         if (heal >= 0)
         {
             Console.WriteLine("{0} heals {1} HP!", name, heal);
-            hl = hp + heal;
+            ValidateHP(hp + heal);
         }
         else Console.WriteLine("{0} heals 0 HP!", name);
-        ValidateHP(hl);
-
     }
     /// <summary>
     /// method to validate hp
