@@ -57,7 +57,7 @@ public class Player
             Console.WriteLine("{0} heals {1} HP!", name, heal);
             ValidateHP(hp + heal);
         }
-        else Console.WriteLine("{0} takes 0 HP!", name);
+        else Console.WriteLine("{0} heals 0 HP!", name);
     }
     /// <summary>
     /// method to validate hp
