@@ -6,9 +6,9 @@ delegate void CalculateHealth(float hp);
 /// </summary>
 public class Player
 {
-    string name;
-    float maxHp;
-    float hp;
+    string name { set; get; }
+    float maxHp { set; get; }
+    float hp { set; get; }
     /// <summary>
     /// constructor
     /// </summary>
