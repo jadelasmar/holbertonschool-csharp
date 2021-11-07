@@ -105,11 +105,15 @@ public class Player
     {
         if (e.currentHp == 0)
         {
+            Console.BackgroundColor = ConsoleColor.Blue;
             Console.WriteLine("Health has reached zero!");
+            Console.ResetColor();
         }
         else
         {
+            Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("Health is low!");
+            Console.ResetColor();
         }
     }
     void OnCheckStatus(CurrentHPArgs e)
