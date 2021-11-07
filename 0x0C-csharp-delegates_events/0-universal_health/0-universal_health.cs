@@ -22,13 +22,13 @@ public class Player
             Console.WriteLine("maxHp must be greater than 0. maxHp set to 100f by default.");
         }
         else this.maxHp = maxHp;
-        hp = maxHp;
+        this.hp = this.maxHp;
     }
     /// <summary>
     /// method to print health
     /// </summary>
     public void PrintHealth()
     {
-        Console.WriteLine("{0} has {1}/{2} health",name,hp,maxHp);
+        Console.WriteLine("{0} has {1}/{2} health", name, hp, maxHp);
     }
 }
