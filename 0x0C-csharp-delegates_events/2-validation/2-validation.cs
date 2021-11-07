@@ -30,7 +30,7 @@ public class Player
     /// </summary>
     public void PrintHealth()
     {
-        Console.WriteLine("{0} has {1}/{2} health", name, hp, maxHp);
+        Console.WriteLine("{0} has {1} / {2} health", name, hp, maxHp);
     }
     /// <summary>
     /// method to print Damage
@@ -66,10 +66,10 @@ public class Player
     public void ValidateHP(float newHp)
     {
         if (newHp < 0)
-            this.hp = 0;
+            hp = 0;
         else if (newHp > maxHp)
-            this.hp = maxHp;
-        else this.hp = newHp;
+            hp = maxHp;
+        else hp = newHp;
     }
 }
 
