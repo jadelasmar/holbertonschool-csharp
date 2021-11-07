@@ -66,10 +66,10 @@ public class Player
     public void ValidateHP(float newHp)
     {
         if (newHp < 0)
-            hp = 0;
+            this.hp = 0;
         else if (newHp > maxHp)
-            hp = maxHp;
-        else hp = newHp;
+            this.hp = maxHp;
+        else this.hp = newHp;
     }
 }
 
