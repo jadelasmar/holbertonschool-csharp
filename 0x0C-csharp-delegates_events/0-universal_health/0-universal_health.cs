@@ -16,12 +16,15 @@ public class Player
     public Player(string name = "Player", float maxHp = 100f)
     {
         this.name = name;
-        if (maxHp < 0)
+        if (maxHp > 0)
         {
-            maxHp = 100f;
+            this.maxHp = maxHp;
+        }
+        else
+        {
+            this.maxHp = 100f;
             Console.WriteLine("maxHp must be greater than 0. maxHp set to 100f by default.");
         }
-        else this.maxHp = maxHp;
         this.hp = this.maxHp;
     }
     /// <summary>
