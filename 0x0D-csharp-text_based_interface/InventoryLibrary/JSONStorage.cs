@@ -1,10 +1,14 @@
 using System.Runtime.Serialization.Json;
 using System.Collections.Generic;
 using System;
+using System.IO;
+using System.Text;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 public class JSONStorage
 {
     /// <summary>
-    /// new dict
+    /// /// new dict
     /// </summary>
     /// <typeparam name="string"></typeparam>
     /// <typeparam name="object"></typeparam>
@@ -24,7 +28,7 @@ public class JSONStorage
     /// add new key-value
     /// </summary>
     /// <param name="obj"></param>
-    public void New(object obj)
+    public void New(BaseClass obj)
     {
         if (obj != null)
             objects.Add(obj.GetType().Name + "." + obj.id, obj);
