@@ -2,56 +2,56 @@
 using System;
 using InventoryLibrary;
 
-
 class InventoryManager
 {
+    JSONStorage storage = new JSONStorage();
     public static void Main()
     {
-        JSONStorage storage = new JSONStorage();
-
-
-        storage.Load();
         printPrompt();
-        Console.WriteLine("Please Enter Command");
-        String cmd = Console.ReadLine();
-        Queue<string> queue = new Queue<string>(cmd.Split(" "));
-        string dequeue = queue.Dequeue();
-        switch (dequeue)
+        storage.Load();
+        while (true)
         {
-            default:
-                Console.WriteLine("{0} command could not be found", cmd);
-                break;
+            Console.WriteLine("Please Enter Command");
+            String cmd = Console.ReadLine();
+            Queue<string> queue = new Queue<string>(cmd.Split(" "));
+            string dequeue = queue.Dequeue();
+            switch (dequeue)
+            {
+                default:
+                    Console.WriteLine("{0} command could not be found", cmd);
+                    break;
 
-            case "ClassNames":
-                Console.WriteLine("executing {0}", dequeue);
-                break;
+                case "ClassNames":
+                    Console.WriteLine("executing {0}", dequeue);
+                    break;
 
-            case "All":
-                All(queue);
-                break;
+                case "All":
+                    All(queue);
+                    break;
 
-            case "Create":
-                Create(queue);
-                break;
+                case "Create":
+                    Create(queue);
+                    break;
 
-            case "Show":
-                Show(queue);
-                break;
+                case "Show":
+                    Show(queue);
+                    break;
 
-            case "Update":
-                Update(queue);
-                break;
+                case "Update":
+                    Update(queue);
+                    break;
 
-            case "Delete":
-                Delete(queue);
-                break;
+                case "Delete":
+                    Delete(queue);
+                    break;
 
-            case "Exit":
-                Environment.Exit(0);
-                break;
+                case "Exit":
+                    Environment.Exit(0);
+                    break;
 
+            }
         }
-
+        printPrompt();
     }
 
     public void All(Queue<string> queue)
