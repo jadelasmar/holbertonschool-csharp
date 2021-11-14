@@ -1,22 +1,22 @@
 using System;
-/// <summary>
-/// new class user
-/// </summary>
-public class User : BaseClass
+
+namespace InventoryLibrary
 {
-    public string name;
-
-    public string name
+    /// <summary>
+    /// new class user
+    /// </summary>
+    public class User : BaseClass
     {
-        get { return name; }
-        set
+        /// <summary> user name </summary>
+        public string name { get; set; }
+
+        /// <summary>
+        /// const
+        /// </summary>
+        /// <param name="name"></param>
+        public User(string name)
         {
-            name = value;
+            this.name = name;
         }
-    }
-
-    public User(string name) : base()
-    {
-        this.name = name;
     }
 }

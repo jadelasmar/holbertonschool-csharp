@@ -1,45 +1,57 @@
 using System;
 using System.Collections.Generic;
-/// <summary>
-/// new class item
-/// </summary>
-public class Item : BaseClass
+
+namespace InventoryLibrary
 {
-    public string name;
-    public string description;
-    public float price;
-    public List<string> tags;
-
-    public string name
+    /// <summary>
+    /// new class item
+    /// </summary>
+    public class Item : BaseClass
     {
-        get { return name; }
-        set { name = value; }
-    }
-    public string description
-    {
-        get { return description; }
-        set { description = value; }
-    }
-    public float price
-    {
-        get { return quantity; }
-        set
+        /// <summary> name of item </summary>
+        public string name
         {
-            price = (float)Math.Round((value * 100) / 100f);
+            get { return name; }
+            set { name = value; }
         }
-    }
-    public List<string> tags
-    {
-        get { return tags; }
-        set
+        /// <summary> optional: item desc </summary>
+        public string description
         {
-            tags = value;
+            get { return description; }
+            set { description = value; }
         }
-    }
-    public Item(string name)
-    {
-        this.name = name;
-        tags = new List<string>();
-    }
+        /// <summary> A optional: item price </summary>
+        public float price
+        {
+            get { return price; }
+            set
+            {
+                price = (float)Math.Round((value * 100) / 100f);
+            }
+        }
+        /// <summary>  optional: item tags </summary>
+        public List<string> tags
+        {
+            get { return tags; }
+            set
+            {
+                tags = value;
+            }
+        }
+        /// <summary>
+        /// const
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="description"></param>
+        /// <param name="price"></param>
+        /// <param name="tags"></param>
+        public Item(string name, string description = null, float price = 0.00f, List<string> tags = null)
+        {
+            this.name = name;
+            this.description = description;
+            this.price = price;
+            this.tags = tags;
+        }
 
+    }
 }
